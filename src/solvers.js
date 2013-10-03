@@ -13,8 +13,18 @@
 
 // return a matrix (an array of arrays) representing a single nxn chessboard, with n rooks placed such that none of them can attack each other
 window.findNRooksSolution = function(n){
-  var solution = undefined; //fixme
+  /* START_PROMPT
+    var solution = undefined; //fixme
+  END_PROMPT */
 
+  /* START_SOLUTION */
+    var solution = _.range(n).map(function(rowIndex){
+      return _.range(n).map(function(colIndex){
+        return +(rowIndex === colIndex);
+      });
+    });
+  /* END_SOLUTION */
+  
   console.log('Single solution for ' + n + ' rooks:', JSON.stringify(solution));
   return solution;
 };
@@ -23,7 +33,16 @@ window.findNRooksSolution = function(n){
 
 // return the number of nxn chessboards that exist, with n rooks placed such that none of them can attack each other
 window.countNRooksSolutions = function(n){
-  var solutionCount = undefined; //fixme
+  /* START_PROMPT
+    var solutionCount = undefined; //fixme
+  END_PROMPT */
+
+  /* START_SOLUTION */
+    function factorial (n){
+      return factorial[n] = n <= 1 ? 1 : factorial[n] || n * factorial(n-1);
+    };
+    var solutionCount = factorial(n); //fixme
+  /* END_SOLUTION */
 
   console.log('Number of solutions for ' + n + ' rooks:', solutionCount);
   return solutionCount;
@@ -32,8 +51,13 @@ window.countNRooksSolutions = function(n){
 
 
 // return a matrix (an array of arrays) representing a single nxn chessboard, with n queens placed such that none of them can attack each other
-window.findNQueensSolution = function(n){
-  var solution = undefined; //fixme
+window.findNQueensSolution = function(n){  
+  /* START_PROMPT
+    var solution = undefined; //fixme
+  END_PROMPT */
+
+  /* START_SOLUTION */
+  /* END_SOLUTION */
 
   console.log('Single solution for ' + n + ' queens:', JSON.stringify(solution));
   return solution;
@@ -42,7 +66,26 @@ window.findNQueensSolution = function(n){
 
 // return the number of nxn chessboards that exist, with n queens placed such that none of them can attack each other
 window.countNQueensSolutions = function(n){
-  var solutionCount = undefined; //fixme
+  /* START_PROMPT
+    var solutionCount = undefined; //fixme
+  END_PROMPT */
+
+  /* START_SOLUTION */
+    var Q=function(n){
+      var s=0,c=(1<<n)-1,f=function(l,o,r,c){
+        var v=~(l|o|r)&c;
+        while(v>0){
+          var t=-v&v;
+          v=v^t;
+          f((l|t)<<1,(o|t),(r|t)>>1,c);
+        }
+        o==c&&s++;
+      };
+      f(0,0,0,c);
+      return s;
+    };
+    var solutionCount = Q(n); //fixme
+  /* END_SOLUTION */
 
   console.log('Number of solutions for ' + n + ' queens:', solutionCount);
   return solutionCount;
