@@ -170,10 +170,10 @@
       var colIdx = majorDiagonalColumnIndexAtFirstRow;
 
       for( ; rowIdx < size && colIdx < size; rowIdx++, colIdx++ ){
-        if( colIdx < 0 ) { continue; }
-
-        var row = this.get(rowIdx);
-        count += row[colIdx];
+        if( colIdx >= 0 ) {
+          var row = this.get(rowIdx);
+          count += row[colIdx];
+        }
       }
 
       return count > 1;
@@ -211,13 +211,16 @@
       END_PROMPT */
 
       /* START_SOLUTION */
-      var size = this.get('n'), count = 0;
-      var rowIdx = 0, colIdx = minorDiagonalColumnIndexAtFirstRow;
+      var size = this.get('n');
+      var count = 0;
+      var rowIdx = 0;
+      var colIdx = minorDiagonalColumnIndexAtFirstRow;
 
-      for( ; rowIdx < size && colIdx >= 0; rowIdx++, colIdx-- ){
-        if( colIdx >= size ){ continue; }
-        var row = this.get(rowIdx);
-        count += row[colIdx];
+      for( ; rowIdx < size && colIdx >= 0; rowIdx++, colIdx-- ) {
+        if( colIdx < size ) {
+          var row = this.get(rowIdx);
+          count += row[colIdx];
+        }
       }
 
       return count > 1;
