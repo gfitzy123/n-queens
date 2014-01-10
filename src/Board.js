@@ -143,8 +143,8 @@
       /* START_SOLUTION */
       var size = this.get('n');
 
-      for( var i = 0; i < size; i++ ){
-        if( this.hasColConflictAt(i) ){
+      for( var i = 0; i < size; i++ ) {
+        if( this.hasColConflictAt(i) ) {
           return true;
         }
       }
@@ -164,11 +164,14 @@
         return false; // fixme
       END_PROMPT */
       /* START_SOLUTION */
-      var size = this.get('n'), count = 0;
-      var rowIdx = 0, colIdx = majorDiagonalColumnIndexAtFirstRow;
+      var size = this.get('n');
+      var count = 0;
+      var rowIdx = 0;
+      var colIdx = majorDiagonalColumnIndexAtFirstRow;
 
       for( ; rowIdx < size && colIdx < size; rowIdx++, colIdx++ ){
-        if( colIdx < 0 ){ continue; }
+        if( colIdx < 0 ) { continue; }
+
         var row = this.get(rowIdx);
         count += row[colIdx];
       }
@@ -186,8 +189,8 @@
       /* START_SOLUTION */
       var size = this.get('n');
 
-      for( var i = 1-size; i < size; i++ ){
-        if( this.hasMajorDiagonalConflictAt(i) ){
+      for( var i = 1 - size; i < size; i++ ) {
+        if( this.hasMajorDiagonalConflictAt(i) ) {
           return true;
         }
       }
