@@ -123,9 +123,10 @@
         return false; // fixme
       END_PROMPT */
       /* START_SOLUTION */
-      var size = this.get('n'), count = 0;
+      var size = this.get('n');
+      var count = 0;
 
-      for( var i = 0; i < size; i++ ){
+      for( var i = 0; i < size; i++ ) {
         var row = this.get(i);
         count += row[colIndex];
       }
