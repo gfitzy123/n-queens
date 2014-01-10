@@ -83,9 +83,10 @@
         return false; // fixme
       END_PROMPT */
       /* START_SOLUTION */
-      var row = this.get(rowIndex), count = 0;
+      var row = this.get(rowIndex);
+      var count = 0;
 
-      for( var i = 0; i < row.length; i++ ){
+      for( var i = 0; i < row.length; i++ ) {
         count += row[i];
       }
 
@@ -101,8 +102,8 @@
       /* START_SOLUTION */
       var size = this.get('n');
 
-      for( var i = 0; i < size; i++ ){
-        if( this.hasRowConflictAt(i) ){
+      for( var i = 0; i < size; i++ ) {
+        if( this.hasRowConflictAt(i) ) {
           return true;
         }
       }
