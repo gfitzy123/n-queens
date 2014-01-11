@@ -95,6 +95,7 @@ window.findNQueensSolution = function(n) {
   /* START_SOLUTION */
   var board = new Board({n:n});
   var solution = board.rows();
+  // If no solution exists, function will return the original unaltered board
 
   findQueenSolution(board, 0, n, function(board) {
     return solution = board.rows();
