@@ -35,3 +35,9 @@ node_modules
 ###PhPStorm###
 
 .idea/
+
+# Floobits
+.floo
+.floobit
+.floo
+.flooignore
