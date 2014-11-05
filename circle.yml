@@ -1,6 +1,6 @@
 machine:
   environment:
-    DOWNSTREAM: hackreactor/<NAME_OF_REPO_TO_OVERWRITE>
+    DOWNSTREAM: hackreactor/n-queens
 dependencies:
   pre:
     - npm install -g hackreactor-labs/problemify
